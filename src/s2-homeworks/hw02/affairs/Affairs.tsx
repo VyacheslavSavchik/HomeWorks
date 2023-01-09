@@ -1,11 +1,11 @@
-import React, {Dispatch, SetStateAction} from 'react'
+import React, {SetStateAction} from 'react'
 import Affair from './affair/Affair'
 import {AffairPriorityType, AffairType, FilterType} from '../HW2'
 import s from './Affairs.module.css'
 
 type AffairsPropsType = {
     data: AffairType[] // need to fix any
-    setFilter: Dispatch<SetStateAction<FilterType>>
+    setFilter: (filter: FilterType) => void
     deleteAffairCallback: (_id: number) => void
     filter: FilterType
 }
@@ -78,4 +78,4 @@ function Affairs(props: AffairsPropsType) {
     )
 }
 
-export default Affairs
+export default Affairs;
