@@ -19,9 +19,7 @@ const getTechs = (find: string) => {
             'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test2',
             {params: {find}}
         )
-        .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
+
 }
 
 const HW14 = () => {
@@ -30,18 +28,20 @@ const HW14 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<string[]>([])
 
-    const sendQuery = (value: string) => {
-        setLoading(true)
-        getTechs(value)
-            .then((res) => {
-                res && setTechs(res.data.techs)
-                setLoading(false)
+    const sendQuery = async(value: string) => {
+        try {
+            setLoading(true)
+            const res = await getTechs(value);
+            res && setTechs(res.data.techs);
+            setLoading(false);
+        } catch (e: any) {
+            alert(e.response?.data?.errorText || e.message)
+        }
                 // делает студент
 
                 // сохранить пришедшие данные
 
                 //
-            })
     }
 
     const onChangeText = (value: string) => {

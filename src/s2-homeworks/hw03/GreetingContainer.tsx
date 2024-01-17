@@ -17,7 +17,6 @@ export const pureAddUser = (name: string, setError: (error: string) => void, set
         addUserCallback(trimmedName)
         setName('')
     }
-
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
@@ -31,7 +30,6 @@ export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: () => v
     if(e.key === 'Enter') {
         addUser()
     }
-
     // если нажата кнопка Enter - добавить
 }
 
