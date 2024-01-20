@@ -36,6 +36,7 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
             // делает студент
             timerId && clearTimeout(timerId)
             setTimerId(undefined)
+            clearTimeout(timerId)
             // остановить предыдущий таймер
             // запустить новый на 1500ms, в котором вызовется функция
             const id = +setTimeout(() => {
